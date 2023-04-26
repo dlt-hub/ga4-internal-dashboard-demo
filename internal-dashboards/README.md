@@ -1,4 +1,4 @@
-# Streamlit app
+# Internal dashboards
 
 After the initial explorations, we created our internal dashboards as a Streamlit app.
 
