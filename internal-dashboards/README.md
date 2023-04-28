@@ -21,7 +21,7 @@ After the initial explorations, we created our internal dashboards as a Streamli
     - We created a new dlt project with postgres as a destination: `dlt init google_analytics postgres`
     - In addition to the google analytics credentials, we also added credentials for the remote postgres database to `.dlt/secrets.toml`
     - We made the same changes to `google_analytics_pipeline.py` and ran `python google_analytics_pipeline.py`
-    - This loaded the google analytics data onto the postgres database
-    - We pushed the streamlit app to the VM and configured the VM to allow incoming traffic to the port where we were going to run streamlit
-    - We installed all dependencies needed to run the streamlit app
-    - We then modified the streamlit app to read data from the postgres database instead of the duckdb database, and finally ran it using the same command `streamlit run app.py"
+    - This loaded the google analytics data onto the remote postgres database
+- We then pushed the streamlit app to the VM and configured the VM to allow incoming traffic to the port where we were going to run streamlit
+- We installed all dependencies needed to run the streamlit app
+- We finally modified the streamlit app to read data from the postgres database instead of the duckdb database, and ran it using the same command `streamlit run app.py"

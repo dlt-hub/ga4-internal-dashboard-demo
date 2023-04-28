@@ -26,7 +26,7 @@ We added our credentials and then loaded the data into a DuckDB instance on our 
 
 2. Set up environment, and set install requirements `pip install -r requirements.txt`
 
-3. Add service account credentials for google analytics in `.dlt/secrets.toml`. On steps on how to do this using service account credentials or OAuth tokens [see here](link-to-ga4-doc)
+3. Add credentials for google analytics in `.dlt/secrets.toml`. On steps on how to do this using service account credentials or OAuth tokens [see here](https://dlthub.com/docs/pipelines/google_analytics)
 
 4. Run pipeline `python3 google_analytics_pipeline.py`
 
