@@ -1,0 +1,6 @@
+dlt[postgres]>=0.2.6a0
+google-analytics-data
+google-api-python-client
+google-auth-oauthlib
+requests_oauthlib
+dlt>=0.2.5
