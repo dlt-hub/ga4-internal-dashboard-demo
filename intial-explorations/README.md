@@ -16,3 +16,11 @@ Here are the steps that we followed to X, Y, and Z:
 4. We ran the pipeline using `python3 google_analytics_pipeline.py` 
 5. This resulted in the duckdb database `dlt_google_analytics_pipeline.duckdb` being created in the directory
 6. We used this duckdb database to locally develop our streamlit app
+
+Steps to run it locally:
+1. Clone this repo
+2. Set up environment, and set install requirements `pip install -r requirements.txt`
+3. Add service account credentials for google analytics in `.dlt/secrets.toml`. On steps on how to do this using service account credentials or OAuth tokens [see here](link-to-ga4-doc)
+4. Run pipeline `python3 google_analytics_pipeline.py`
+5. This will create a local duckdb database `dlt_google_analytics_pipeline.duckdb`
+6. Finally run the streamlit app by using the command `streamlit run app.py`

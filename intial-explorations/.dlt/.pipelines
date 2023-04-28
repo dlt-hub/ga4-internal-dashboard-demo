@@ -1,0 +1,27 @@
+engine_version: 1
+pipelines:
+  google_analytics:
+    is_dirty: false
+    last_commit_sha: 6dbcaf404fe4d9be29181ef645ab3c3b363f4c4d
+    last_commit_timestamp: '2023-04-25T22:25:02+02:00'
+    files:
+      google_analytics\setup_script_gcp_oauth.py:
+        commit_sha: 6dbcaf404fe4d9be29181ef645ab3c3b363f4c4d
+        git_sha: ff64d947e05d5401222d702caa4a79431fabeeb3
+        sha3_256: 457bb940fae32ef2b6aa865b95cdab5536ea948faee97e730d9489726ebaa7a1
+      google_analytics\__init__.py:
+        commit_sha: 6dbcaf404fe4d9be29181ef645ab3c3b363f4c4d
+        git_sha: 24ed3e67755cf38089d646a4fb484e5588968b84
+        sha3_256: 07cb769aee84c394f5ea8d2dfc85edfa96ccd6d8a81b6887c5941ea96251a4b7
+      google_analytics\helpers\credentials.py:
+        commit_sha: 6dbcaf404fe4d9be29181ef645ab3c3b363f4c4d
+        git_sha: 91cf1659e83d1b682ce40e512f075571a8fc9809
+        sha3_256: f28aef028f3d15c6701fdc58c19f990e5f62f012130f0dbe365021aacda66578
+      google_analytics\helpers\data_processing.py:
+        commit_sha: 6dbcaf404fe4d9be29181ef645ab3c3b363f4c4d
+        git_sha: bdfb0f75234cb408254e30e9003ca199b2d32e17
+        sha3_256: 4ea228b99c2bd09f4d95f88a00dfc92cfb36698603c408ee7c5c9e4cceb2565c
+      google_analytics\helpers\__init__.py:
+        commit_sha: 6dbcaf404fe4d9be29181ef645ab3c3b363f4c4d
+        git_sha: e69de29bb2d1d6434b8b29ae775ad8c2e48c5391
+        sha3_256: a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a

@@ -1,0 +1,50 @@
+name: Run dlt_google_analytics_pipeline pipeline from google_analytics_pipeline.py
+'on':
+  schedule:
+  - cron: 0 2 * * *
+  workflow_dispatch: null
+env:
+  DATASET_NAME: dlt_google_analytics_data
+  SOURCES__GOOGLE_ANALYTICS__CREDENTIALS__CLIENT_ID: '106404499083406128146'
+  SOURCES__GOOGLE_ANALYTICS__CREDENTIALS__PROJECT_ID: dlthub-analytics
+  SOURCES__GOOGLE_ANALYTICS__CREDENTIALS__CLIENT_EMAIL: 105150287833-compute@developer.gserviceaccount.com
+  DESTINATION__POSTGRES__CREDENTIALS__DATABASE: google_analytics_demo_db
+  DESTINATION__POSTGRES__CREDENTIALS__USERNAME: dlt
+  DESTINATION__POSTGRES__CREDENTIALS__HOST: 34.28.70.28
+  DESTINATION__POSTGRES__CREDENTIALS__PORT: '5432'
+  DESTINATION__POSTGRES__CREDENTIALS__CONNECT_TIMEOUT: '15'
+  SOURCES__GOOGLE_ANALYTICS__CREDENTIALS__PRIVATE_KEY: ${{ secrets.SOURCES__GOOGLE_ANALYTICS__CREDENTIALS__PRIVATE_KEY }}
+  DESTINATION__POSTGRES__CREDENTIALS__PASSWORD: ${{ secrets.DESTINATION__POSTGRES__CREDENTIALS__PASSWORD }}
+jobs:
+  maybe_skip:
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+    - id: skip_check
+      uses: fkirc/skip-duplicate-actions@v5
+      with:
+        concurrent_skipping: always
+        skip_after_successful_duplicate: 'false'
+        do_not_skip: '[]'
+  run_pipeline:
+    needs: maybe_skip
+    if: needs.maybe_skip.outputs.should_skip != 'true'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.10.x
+    - uses: syphar/restore-virtualenv@v1
+      id: cache-virtualenv
+      with:
+        requirement_files: requirements_github_action.txt
+    - uses: syphar/restore-pip-download-cache@v1
+      if: steps.cache-virtualenv.outputs.cache-hit != 'true'
+    - run: pip install -r requirements_github_action.txt
+      if: steps.cache-virtualenv.outputs.cache-hit != 'true'
+    - name: Run pipeline script
+      run: cd 'deployed-pipeline' && python 'google_analytics_pipeline.py'
