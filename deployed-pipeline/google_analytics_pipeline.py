@@ -22,7 +22,7 @@ def simple_load():
     pipeline = dlt.pipeline(pipeline_name="dlt_google_analytics_pipeline", destination='postgres', full_refresh=False, dataset_name="dlt_google_analytics_data")
     # Google Analytics source function - taking data from queries defined locally instead of config
     # TODO: pass your google analytics property id
-    data_analytics = google_analytics(property_id=12345678, queries=queries) # Enter your property id here
+    data_analytics = google_analytics(property_id=345886522, queries=queries) # Enter your property id here
     info = pipeline.run(data=data_analytics)
     print(info)
     return info
